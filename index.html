@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RSVP - 15 Anos Maria Karen</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+
+        /* ==============================
+           CONFIGURAÇÕES GERAIS
+        ============================== */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        :root {
+            --rosa-fundo: #fbe3eb;
+            --vinho-texto: #7a283c;
+            --azul-floral: #5c82a6;
+            --azul-suave: #d4e6f1;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+
+            font-family: 'Montserrat', sans-serif;
+
+            background: linear-gradient(
+                135deg,
+                #eaf2f8 0%,
+                #fceef3 50%,
+                #eaf2f8 100%
+            );
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            min-height: 100vh;
+
+            color: var(--vinho-texto);
+        }
+
+
+        /* ==============================
+           CARTÃO PRINCIPAL
+        ============================== */
+
+        .card {
+            background: rgba(255, 255, 255, 0.96);
+
+            padding: 35px 25px;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 10px 30px rgba(92, 130, 166, 0.20);
+
+            max-width: 420px;
+
+            width: 100%;
+
+            text-align: center;
+
+            border: 3px solid var(--azul-floral);
+        }
+
+
+        /* ==============================
+           TÍTULO
+        ============================== */
+
+        h1 {
+            font-family: 'Great Vibes', cursive;
+
+            font-size: 3.2rem;
+
+            margin: 0;
+
+            color: var(--vinho-texto);
+
+            font-weight: normal;
+        }
+
+
+        .subtitulo {
+            font-size: 0.85rem;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            color: var(--azul-floral);
+
+            margin-bottom: 5px;
+
+            font-weight: 600;
+        }
+
+
+        /* ==============================
+           DATA DA FESTA
+        ============================== */
+
+        .data {
+            font-size: 1.1rem;
+
+            font-weight: 600;
+
+            color: var(--azul-floral);
+
+            margin-bottom: 15px;
+
+            background-color: var(--azul-suave);
+
+            padding: 8px 18px;
+
+            border-radius: 50px;
+
+            display: inline-block;
+        }
+
+
+        /* ==============================
+           AVISO DE CONFIRMAÇÃO
+        ============================== */
+
+        .aviso-data-limite {
+
+            font-size: 0.85rem;
+
+            color: var(--vinho-texto);
+
+            background-color: rgba(243, 177, 205, 0.30);
+
+            border: 1px dashed var(--vinho-texto);
+
+            padding: 12px 12px;
+
+            border-radius: 10px;
+
+            margin-bottom: 20px;
+
+            line-height: 1.45;
+
+        }
+
+
+        .titulo-aviso {
+
+            font-weight: 500;
+
+            margin-bottom: 4px;
+
+        }
+
+
+        .data-limite {
+
+            display: inline-block;
+
+            margin-top: 6px;
+
+            padding: 4px 10px;
+
+            border-radius: 20px;
+
+            border: 1px dashed var(--vinho-texto);
+
+            background-color: rgba(255, 255, 255, 0.75);
+
+            font-weight: 500;
+
+        }
+
+
+        /* ==============================
+           ÁREA DOS CONVIDADOS
+        ============================== */
+
+        .convidado-card {
+
+            background-color: rgba(212, 230, 241, 0.30);
+
+            border-left: 4px solid var(--azul-floral);
+
+            padding: 15px;
+
+            border-radius: 8px;
+
+            margin-bottom: 15px;
+
+            text-align: left;
+        }
+
+
+        .nome-convidado {
+
+            font-weight: 600;
+
+            font-size: 1.05rem;
+
+            color: var(--vinho-texto);
+
+            margin-bottom: 8px;
+        }
+
+
+        /* ==============================
+           SELECT
+        ============================== */
+
+        select {
+
+            width: 100%;
+
+            padding: 10px;
+
+            border: 1px solid var(--azul-floral);
+
+            border-radius: 8px;
+
+            font-family: 'Montserrat', sans-serif;
+
+            font-size: 0.9rem;
+
+            outline: none;
+
+            background-color: white;
+
+            cursor: pointer;
+        }
+
+
+        /* ==============================
+           BOTÃO
+        ============================== */
+
+        button.btn-submit {
+
+            width: 100%;
+
+            padding: 14px;
+
+            background: linear-gradient(
+                45deg,
+                #5c82a6,
+                #7a283c
+            );
+
+            color: white;
+
+            border: none;
+
+            border-radius: 10px;
+
+            font-size: 1rem;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+
+            margin-top: 5px;
+
+            box-shadow:
+                0 4px 15px rgba(92, 130, 166, 0.30);
+        }
+
+
+        button.btn-submit:hover {
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 6px 20px rgba(92, 130, 166, 0.50);
+        }
+
+
+        /* ==============================
+           MENSAGEM DE PRAZO ENCERRADO
+        ============================== */
+
+        .mensagem-expirado {
+
+            font-size: 0.9rem;
+
+            color: #721c24;
+
+            background-color: #f8d7da;
+
+            border: 1px solid #f5c6cb;
+
+            padding: 15px;
+
+            border-radius: 10px;
+
+            margin-top: 15px;
+
+            font-weight: 600;
+
+            line-height: 1.5;
+        }
+
+
+        /* ==============================
+           CELULAR
+        ============================== */
+
+        @media (max-width: 600px) {
+
+            body {
+
+                padding: 15px 10px;
+
+                display: flex;
+
+                align-items: flex-start;
+
+                justify-content: center;
+
+                min-height: 100vh;
+            }
+
+
+            .card {
+
+                width: 100%;
+
+                max-width: 420px;
+
+                margin: 0 auto;
+
+                padding: 28px 18px;
+
+                border-radius: 18px;
+            }
+
+
+            h1 {
+
+                font-size: 2.8rem;
+
+            }
+
+
+            .subtitulo {
+
+                font-size: 0.75rem;
+
+                letter-spacing: 1.5px;
+
+            }
+
+
+            .data {
+
+                font-size: 1rem;
+
+                padding: 8px 15px;
+
+                margin-bottom: 15px;
+            }
+
+
+            .aviso-data-limite {
+
+                font-size: 0.82rem;
+
+                padding: 14px 10px;
+
+                margin-bottom: 18px;
+
+            }
+
+
+            .convidado-card {
+
+                width: 100%;
+
+                padding: 14px;
+
+                margin-bottom: 12px;
+
+            }
+
+
+            .nome-convidado {
+
+                font-size: 1rem;
+
+            }
+
+
+            select {
+
+                width: 100%;
+
+                padding: 11px 8px;
+
+                font-size: 0.88rem;
+
+            }
+
+
+            button.btn-submit {
+
+                width: 100%;
+
+                font-size: 0.95rem;
+
+                padding: 14px 10px;
+
+            }
+
+        }
+
+
+        /* ==============================
+           CELULARES MUITO PEQUENOS
+        ============================== */
+
+        @media (max-width: 360px) {
+
+            .card {
+
+                padding: 25px 14px;
+
+            }
+
+
+            h1 {
+
+                font-size: 2.5rem;
+
+            }
+
+
+            .aviso-data-limite {
+
+                font-size: 0.78rem;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ==============================
+         CARTÃO PRINCIPAL
+    ============================== -->
+
+    <div class="card">
+
+
+        <!-- TÍTULO -->
+
+        <div class="subtitulo">
+            Confirmação de Presença
+        </div>
+
+
+        <h1>
+            Maria Karen
+        </h1>
+
+
+        <!-- DATA DA FESTA -->
+
+        <div class="data">
+            ✨ 10 . 10 . 2026 ✨
+        </div>
+
+
+        <!-- ==============================
+             AVISO
+        ============================== -->
+
+        <div class="aviso-data-limite">
+
+
+            <div class="titulo-aviso">
+                ⏰ ATENÇÃO, CONVIDADO(A)!
+            </div>
+
+
+            Este é um lembrete para quem ainda não confirmou sua presença.
+
+
+            <br><br>
+
+
+            🗓️ A confirmação ficará disponível
+            <strong>somente até segunda-feira</strong>.
+
+
+            <br>
+
+
+            <div class="data-limite">
+                📅 05/10/2026
+            </div>
+
+
+            <br><br>
+
+
+            Após essa data, o formulário será encerrado e
+            <strong>não será mais possível confirmar presença.</strong>
+
+
+            <br><br>
+
+
+            Para que possamos organizar a festa corretamente,
+            <strong>o prazo para confirmação será encerrado em 05/10/2026.</strong>
+
+
+        </div>
+
+
+        <!-- ==============================
+             FORMULÁRIO
+        ============================== -->
+
+        <form id="rsvpForm">
+
+
+            <!-- LISTA DOS CONVIDADOS -->
+
+            <div id="listaConvidados"></div>
+
+
+            <!-- BOTÃO -->
+
+            <button
+                type="button"
+                id="btnSubmit"
+                class="btn-submit"
+                onclick="enviarWhatsApp()">
+
+                Enviar Confirmação 📱
+
+            </button>
+
+
+        </form>
+
+
+        <!-- ==============================
+             PRAZO ENCERRADO
+        ============================== -->
+
+        <div
+            id="mensagemExpirado"
+            class="mensagem-expirado"
+            style="display: none;">
+
+            ⚠️ <strong>Prazo de confirmação encerrado.</strong>
+
+            <br><br>
+
+            O prazo para confirmação de presença encerrou no dia
+            <strong>05/10/2026.</strong>
+
+            <br><br>
+
+            Não será mais possível realizar a confirmação através deste formulário.
+
+        </div>
+
+
+    </div>
+
+
+    <!-- ==============================
+         JAVASCRIPT
+    ============================== -->
+
+    <script>
+
+
+        /* ==========================================
+           CARREGAR NOMES DA URL
+        ========================================== */
+
+        function carregarNomesDaURL() {
+
+
+            const params =
+                new URLSearchParams(window.location.search);
+
+
+            const convidados = [];
+
+
+            let i = 1;
+
+
+            while (params.has(`p${i}`)) {
+
+                convidados.push(
+                    params.get(`p${i}`)
+                );
+
+                i++;
+
+            }
+
+
+            /*
+             * Caso nenhum nome seja colocado
+             * na URL, aparecem nomes de exemplo.
+             */
+
+            if (convidados.length === 0) {
+
+                convidados.push(
+                    "Convidado 1",
+                    "Convidado 2"
+                );
+
+            }
+
+
+            const container =
+                document.getElementById(
+                    'listaConvidados'
+                );
+
+
+            container.innerHTML = "";
+
+
+            convidados.forEach(
+                (nome, index) => {
+
+
+                    const box =
+                        document.createElement('div');
+
+
+                    box.className =
+                        'convidado-card';
+
+
+                    box.innerHTML = `
+
+                        <div
+                            class="nome-convidado"
+                            id="nome-${index}">
+
+                            ${nome}
+
+                        </div>
+
+
+                        <select class="status-convidado">
+
+                            <option value="SIM">
+                                ✅ Vou à festa!
+                            </option>
+
+                            <option value="NÃO">
+                                ❌ Não poderei ir
+                            </option>
+
+                        </select>
+
+                    `;
+
+
+                    container.appendChild(box);
+
+                }
+            );
+
+
+            verificarDataLimite();
+
+        }
+
+
+        /* ==========================================
+           VERIFICAR DATA LIMITE
+           
+           ÚLTIMO DIA:
+           05/10/2026 às 23:59:59
+        ========================================== */
+
+        function verificarDataLimite() {
+
+
+            const dataLimite =
+                new Date(
+                    2026,
+                    9,
+                    5,
+                    23,
+                    59,
+                    59
+                );
+
+
+            const dataAtual =
+                new Date();
+
+
+            if (dataAtual > dataLimite) {
+
+
+                document
+                    .getElementById('rsvpForm')
+                    .style.display = 'none';
+
+
+                document
+                    .getElementById('mensagemExpirado')
+                    .style.display = 'block';
+
+            }
+
+        }
+
+
+        /* ==========================================
+           ENVIAR CONFIRMAÇÃO PELO WHATSAPP
+        ========================================== */
+
+        function enviarWhatsApp() {
+
+
+            /*
+             * NÚMERO DO WHATSAPP
+             *
+             * 55 = Brasil
+             * 85 = DDD
+             */
+
+            const numeroTelefone =
+                "5585987833535";
+
+
+            /*
+             * VERIFICA NOVAMENTE O PRAZO
+             */
+
+            const dataLimite =
+                new Date(
+                    2026,
+                    9,
+                    5,
+                    23,
+                    59,
+                    59
+                );
+
+
+            const dataAtual =
+                new Date();
+
+
+            /*
+             * Se o prazo acabou,
+             * impede o envio.
+             */
+
+            if (dataAtual > dataLimite) {
+
+
+                document
+                    .getElementById('rsvpForm')
+                    .style.display = 'none';
+
+
+                document
+                    .getElementById('mensagemExpirado')
+                    .style.display = 'block';
+
+
+                alert(
+                    "⚠️ O prazo para confirmação de presença encerrou em 05/10/2026."
+                );
+
+
+                return;
+
+            }
+
+
+            /*
+             * PEGA OS NOMES
+             */
+
+            const elementosNome =
+                document.querySelectorAll(
+                    '.nome-convidado'
+                );
+
+
+            /*
+             * PEGA AS RESPOSTAS
+             */
+
+            const selectsStatus =
+                document.querySelectorAll(
+                    '.status-convidado'
+                );
+
+
+            let convidadosTexto = "";
+
+
+            /*
+             * MONTA A LISTA DE RESPOSTAS
+             */
+
+            elementosNome.forEach(
+                (el, index) => {
+
+
+                    const nome =
+                        el.innerText;
+
+
+                    const confirmou =
+                        selectsStatus[index].value === "SIM";
+
+
+                    const statusTexto =
+                        confirmou
+                            ? "✅ Confirmado(a)"
+                            : "❌ Não poderá ir";
+
+
+                    convidadosTexto +=
+                        ` *${nome}*: ${statusTexto}\n`;
+
+                }
+            );
+
+
+            /*
+             * MENSAGEM DO WHATSAPP
+             */
+
+            let texto =
+                `🎀 *15 ANOS - MARIA KAREN* 🎀\n\n`;
+
+
+            texto +=
+                `✨ *Confirmação de Presença* ✨\n\n`;
+
+
+            texto +=
+                `📋 *Respostas:*\n`;
+
+
+            texto +=
+                `${convidadosTexto}\n`;
+
+
+            texto +=
+                `📅 Confirmação realizada até 05/10/2026.`;
+
+
+            /*
+             * CODIFICA A MENSAGEM
+             */
+
+            const textoCodificado =
+                encodeURIComponent(texto);
+
+
+            /*
+             * LINK DO WHATSAPP
+             */
+
+            const url =
+                `https://api.whatsapp.com/send?phone=${numeroTelefone}&text=${textoCodificado}`;
+
+
+            /*
+             * ABRE O WHATSAPP
+             */
+
+            window.open(
+                url,
+                '_blank'
+            );
+
+        }
+
+
+        /* ==========================================
+           INICIAR
+        ========================================== */
+
+        carregarNomesDaURL();
+
+
+    </script>
+
+
+</body>
+
+</html>
